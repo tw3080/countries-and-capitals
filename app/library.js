@@ -15,7 +15,7 @@ angular.module('countriesLibrary', [])
             params: params
         })
         .then(function(response) {
-            console.log(response.data);
+            return response.data.geonames;
         });
     };
 }]);
