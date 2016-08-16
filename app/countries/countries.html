@@ -24,7 +24,7 @@
             </tr>
         </thead>
         <tbody ng-repeat="country in data">
-            <tr ng-click="goToCountry()">
+            <tr ng-click="goToCountry(country.countrCode)">
                 <td>
                     {{ country.countryName }}
                 </td>
