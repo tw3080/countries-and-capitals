@@ -8,14 +8,6 @@ viewsModule.config(['$routeProvider', function($routeProvider) {
 viewsModule.controller('CountryDetailCtrl', function($scope, $routeParams, countrySearch) {
     $scope.countryCode = $routeParams.countryCode;
     countrySearch().then(function(response) {
-        console.log(response);
+        $scope.selectedCountry = response[$scope.countryCode];
     });
-
-    $scope.goToCountry = function() {
-        console.log('lol');
-        /*
-        window.location.href = '#/countries/' + code;
-        console.log(window.location.href);
-        */
-    };
 });
