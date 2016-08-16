@@ -1,1 +1,1 @@
-var viewsModule = angular.module('countriesAppViews', ['ngRoute']);
+var viewsModule = angular.module('countriesAppViews', ['ngRoute', 'countriesLibrary']);
