@@ -9,4 +9,8 @@ viewsModule.controller('CountriesCtrl', function($scope, getCountryInfo) {
     getCountryInfo().then(function(response) {
         $scope.data = response;
     });
+
+    $scope.goToCountry = function(code) {
+        window.location.href = '#/countries/' + code;
+    };
 });
