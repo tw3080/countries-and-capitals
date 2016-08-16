@@ -3,4 +3,4 @@ angular.module('countriesApp', ['countriesAppViews', 'ngRoute'])
         $routeProvider.otherwise({
             redirectTo: '/'
         });
-    });
+});
