@@ -1,5 +1,5 @@
 viewsModule.config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', {
-        templateUrl: './home/home.html'
+        templateUrl: 'home/home.html'
     });
 }]);
