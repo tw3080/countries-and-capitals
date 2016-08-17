@@ -1,0 +1,57 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+/* Main content container */
+.main-container {
+  width: 50rem;
+  margin: 0 auto;
+  text-align: center;
+}
+/* Buttons */
+.btn {
+  padding: 0.75rem;
+  border: 1px solid #FF9416;
+  border-radius: 3px;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #FF9416;
+  color: #fff;
+}
+.btn:hover {
+  color: #FF9416;
+  background-color: #fff;
+  border-color: #FF9416;
+  cursor: pointer;
+}
+/* Country rows in table with country list */
+.country-row:hover {
+  cursor: pointer;
+}
+/* Flag and map images */
+.country-images {
+  height: 8rem;
+}
+/* Transition animation */
+.animate-view-container {
+  position: relative;
+}
+.animate-view.ng-enter,
+.animate-view.ng-leave {
+  transition: 0.25s ease all;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.animate-view.ng-enter {
+  opacity: 0;
+}
+.animate-view.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+.animate-view.ng-leave {
+  opacity: 1;
+}
+.animate-view.ng-leave.ng-leave-active {
+  opacity: 0;
+}
