@@ -1,4 +1,6 @@
 <div>
+    <a ng-href="#/"><button class="btn">Home</button></a>
+    <a ng-href="#/countries"><button class="btn">Browse Countries</button></a>
     <h2>{{ countryData.countryName }}</h2>
     <p>
         Population of Country: {{ countryData.population | number }}
@@ -19,8 +21,4 @@
     <img ng-src="http://www.geonames.org/flags/x/{{ countryData.countryCode | lowercase }}.gif" />
     <img ng-src="http://www.geonames.org/img/country/250/{{ countryData.countryCode | uppercase }}.png" />
     <p>
-    <p>
-        <a ng-href="#/"><button class="btn">Home</button></a>
-        <a ng-href="#/countries"><button class="btn">Browse Countries</button></a>
-    </p>
 </div>
