@@ -21,10 +21,13 @@ angular.module('countriesLibrary', [])
     };
 }])
 .factory('countrySearch', ['$http', '$q', 'GEONAMES_API_PREFIX', 'GEONAMES_TYPE', 'GEONAMES_USERNAME', function($http, $q, GEONAMES_API_PREFIX, GEONAMES_TYPE, GEONAMES_USERNAME) {
-    return function() {
+    return function(capital) {
         var params = {
             username: GEONAMES_USERNAME,
-            type: GEONAMES_TYPE
+            type: GEONAMES_TYPE,
+            q: capital,
+            name_equals: capital,
+            isNameRequired: true
         };
         return $http({
             method: 'GET',
@@ -36,4 +39,15 @@ angular.module('countriesLibrary', [])
             return response.data.geonames;
         });
     };
-}]);
+}])
+.filter('getByCountryCode', function() {
+    return function(list, code) {
+        var country = list.filter(function(country) {
+            // console.log(country, code);
+            if (country.countryCode == code) {
+                return true;
+            }
+        });
+        if(country) return country[0];
+    };
+});
