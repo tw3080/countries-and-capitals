@@ -15,10 +15,9 @@
         Population of Capital: {{ capitalData.population | number }}
     </p>
     <p>
-        <!-- Neighbors: <a ng-repeat="neighbor in neighbors" ng-href="#/countries/{{neighbor.countryCode}}">{{ neighbor.countryName }}{{$last ? '' : ', '}}</a> -->
         Neighbors: <span ng-repeat="neighbor in neighbors" ng-click="goToNeighbor(neighbor.countryCode)">{{ neighbor.countryName }}{{$last ? '' : ', '}}</span>
     </p>
-    <img ng-src="http://www.geonames.org/flags/x/{{ countryData.countryCode | lowercase }}.gif" />
-    <img ng-src="http://www.geonames.org/img/country/250/{{ countryData.countryCode | uppercase }}.png" />
+    <img class="country-images" ng-src="http://www.geonames.org/flags/x/{{ countryData.countryCode | lowercase }}.gif" />
+    <img class="country-images" ng-src="http://www.geonames.org/img/country/250/{{ countryData.countryCode | uppercase }}.png" />
     <p>
 </div>
