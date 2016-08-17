@@ -23,4 +23,8 @@ viewsModule.controller('CountryDetailCtrl', function($scope, $routeParams, getCo
         $scope.neighbors = response;
         console.log($scope.neighbors);
     });
+
+    $scope.goToNeighbor = function(code) {
+        window.location.href = '#/countries/' + code;
+    };
 });
