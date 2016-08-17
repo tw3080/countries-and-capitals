@@ -1,4 +1,5 @@
 <div>
+    <h2>{{ countryData.countryName }}</h2>
     <p>
         Population of Country: {{ countryData.population | number }}
     </p>
@@ -12,6 +13,11 @@
         Population of Capital: {{ capitalData.population | number }}
     </p>
     <p>
-        Neighbors:
+        <!-- Neighbors: <a ng-repeat="neighbor in neighbors" ng-href="#/countries/{{neighbor.countryCode}}">{{ neighbor.countryName }}{{$last ? '' : ', '}}</a> -->
+        Neighbors: <span ng-repeat="neighbor in neighbors" ng-click="goToNeighbor(neighbor.countryCode)">{{ neighbor.countryName }}{{$last ? '' : ', '}}</span>
+    </p>
+    <p>
+        <a ng-href="#/"><button class="btn">Home</button></a>
+        <a ng-href="#/countries"><button class="btn">Browse Countries</button></a>
     </p>
 </div>
