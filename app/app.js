@@ -1,4 +1,4 @@
-angular.module('countriesApp', ['countriesAppViews', 'ngRoute'])
+angular.module('countriesApp', ['countriesAppViews', 'ngRoute', 'ngAnimate'])
     .config(function($routeProvider) {
         /* If the user tries to go to any route other than one which is already defined, redirect them to the home page */
         $routeProvider.otherwise({
