@@ -5,9 +5,19 @@ viewsModule.config(['$routeProvider', function($routeProvider) {
     });
 }]);
 
-viewsModule.controller('CountryDetailCtrl', function($scope, $routeParams, countrySearch) {
+viewsModule.controller('CountryDetailCtrl', function($scope, $routeParams, countrySearch, getCountryInfo, $filter) {
     $scope.countryCode = $routeParams.countryCode;
-    countrySearch().then(function(response) {
-        $scope.selectedCountry = response[$scope.countryCode];
+    getCountryInfo().then(function(response) {
+        // console.log(response);
+        var country = $filter('getByCountryCode')(response, $scope.countryCode);
+        // console.log(country);
+        return countrySearch(country.capital);
+    }).then(function(response) {
+        console.log(response[0]);
+        $scope.capital = response[0];
+        /*
+        return neighborhoodSearch($scope.capital.geonameId);
+    }).then(function(response) {
+        $scope.neighbors = response[0]; */
     });
 });
