@@ -27,6 +27,13 @@ body {
     }
 }
 
+/* Adds a pointer cursor when hovering over the neighbors links */
+.neighbor-text {
+    &:hover {
+        cursor: pointer;
+    }
+}
+
 /* Country rows in table with country list */
 .country-row {
     &:hover {
@@ -39,13 +46,16 @@ body {
     height: 8rem;
 }
 
-/* Transition animation */
+/* View transition animation */
 .animate-view-container {
     position: relative;
 }
 
 .animate-view.ng-enter,
 .animate-view.ng-leave {
+    -webkit-transition: 0.25s ease all;
+    -moz-transition: 0.25s ease all;
+    -o-transition: 0.25s ease all;
     transition: 0.25s ease all;
     position: absolute;
     top: 0;
@@ -67,5 +77,19 @@ body {
 }
 
 .animate-view.ng-leave.ng-leave-active {
+    opacity: 0;
+}
+
+/* Animates containers */
+.animate-container.ng-hide-add,
+.animate-container.ng-hide-remove {
+    -webkit-transition: 0.25s ease all;
+    -moz-transition: 0.25s ease all;
+    -o-transition: 0.25s ease all;
+    transition: 0.25s ease all;
+    opacity: 1;
+}
+
+.animate-container.ng-hide {
     opacity: 0;
 }
