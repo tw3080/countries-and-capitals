@@ -6,8 +6,10 @@ viewsModule.config(['$routeProvider', function($routeProvider) {
 }]);
 
 viewsModule.controller('CountriesCtrl', function($scope, getCountryInfo) {
+    $scope.isLoading = true; // When isLoading is true, a loading message will display
     /* Get country info from HTTP request */
     getCountryInfo().then(function(response) {
+        $scope.isLoading = false; // When isLoading is false, the loading message is hidden and the table with country data displays
         $scope.data = response;
     });
 
