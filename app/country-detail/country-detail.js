@@ -6,6 +6,7 @@ viewsModule.config(['$routeProvider', function($routeProvider) {
 }]);
 
 viewsModule.controller('CountryDetailCtrl', function($scope, $routeParams, getCountryInfo, $filter, countrySearch, neighborSearch) {
+    $scope.isLoading = true; // When isLoading is true, the div containing the country details is hidden
     $scope.countryCode = $routeParams.countryCode;
 
     /* Get country info from HTTP request */
@@ -20,6 +21,7 @@ viewsModule.controller('CountryDetailCtrl', function($scope, $routeParams, getCo
         /* Return array of neighbors based on a country's code */
         return neighborSearch($scope.capitalData.countryCode);
     }).then(function(response) {
+        $scope.isLoading = false; // When isLoading is false, the div containing the country details is visible
         $scope.neighbors = response;
     });
 
