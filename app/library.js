@@ -3,7 +3,6 @@ angular.module('countriesLibrary', [])
 .constant('GEONAMES_API_PREFIX', 'http://api.geonames.org')
 .constant('GEONAMES_TYPE', 'json')
 .constant('GEONAMES_USERNAME', 'tw3080')
-// TODO: Promises stuff? $q
 /* Returns information about each country in the world, such as name, population, area, etc. */
 .factory('getCountryInfo', ['$http', '$q', 'GEONAMES_API_PREFIX', 'GEONAMES_TYPE', 'GEONAMES_USERNAME', function($http, $q, GEONAMES_API_PREFIX, GEONAMES_TYPE, GEONAMES_USERNAME) {
     return function() {
@@ -58,7 +57,6 @@ angular.module('countriesLibrary', [])
             params: params
         })
         .then(function(response) {
-            // console.log(response.data.geonames);
             return response.data.geonames;
         });
     };
@@ -67,7 +65,6 @@ angular.module('countriesLibrary', [])
 .filter('getByCountryCode', function() {
     return function(list, code) {
         var country = list.filter(function(country) {
-            // console.log(country, code);
             if (country.countryCode == code) {
                 return true;
             }
