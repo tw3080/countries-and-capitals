@@ -1,6 +1,9 @@
 <div>
     <a ng-href="#/"><button class="btn">Home</button></a>
-    <table>
+    <p ng-hide="!isLoading">
+        Loading countries list...
+    </p>
+    <table class="animate-container" ng-hide="isLoading">
         <thead>
             <tr>
                 <th>
