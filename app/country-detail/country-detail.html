@@ -1,23 +1,25 @@
 <div>
     <a ng-href="#/"><button class="btn">Home</button></a>
     <a ng-href="#/countries"><button class="btn">Browse Countries</button></a>
-    <h2>{{ countryData.countryName }}</h2>
-    <p>
-        Population of Country: {{ countryData.population | number }}
-    </p>
-    <p>
-        Area: {{ countryData.areaInSqKm | number }} KM<sup>2</sup>
-    </p>
-    <p>
-        Capital: {{ capitalData.toponymName }}
-    </p>
-    <p>
-        Population of Capital: {{ capitalData.population | number }}
-    </p>
-    <p>
-        Neighbors: <span ng-repeat="neighbor in neighbors" ng-click="goToNeighbor(neighbor.countryCode)">{{ neighbor.countryName }}{{$last ? '' : ', '}}</span>
-    </p>
-    <img class="country-images" ng-src="http://www.geonames.org/flags/x/{{ countryData.countryCode | lowercase }}.gif" />
-    <img class="country-images" ng-src="http://www.geonames.org/img/country/250/{{ countryData.countryCode | uppercase }}.png" />
-    <p>
+    <div class="animate-container" ng-hide="isLoading">
+        <h2>{{ countryData.countryName }}</h2>
+        <p>
+            Population of Country: {{ countryData.population | number }}
+        </p>
+        <p>
+            Area: {{ countryData.areaInSqKm | number }} KM<sup>2</sup>
+        </p>
+        <p>
+            Capital: {{ capitalData.toponymName }}
+        </p>
+        <p>
+            Population of Capital: {{ capitalData.population | number }}
+        </p>
+        <p>
+            Neighbors: <span class="neighbor-text" ng-repeat="neighbor in neighbors" ng-click="goToNeighbor(neighbor.countryCode)">{{ neighbor.countryName }}{{$last ? '' : ', '}}</span>
+        </p>
+        <img class="country-images" ng-src="http://www.geonames.org/flags/x/{{ countryData.countryCode | lowercase }}.gif" />
+        <img class="country-images" ng-src="http://www.geonames.org/img/country/250/{{ countryData.countryCode | uppercase }}.png" />
+        <p>
+    </div>
 </div>
