@@ -5,7 +5,7 @@ viewsModule.config(['$routeProvider', function($routeProvider) {
     });
 }]);
 
-viewsModule.controller('CountriesCtrl', function($scope, getCountryInfo) {
+viewsModule.controller('CountriesCtrl', function($scope, getCountryInfo, $location) {
     $scope.isLoading = true; // When isLoading is true, a loading message will display
     /* Get country info from HTTP request */
     getCountryInfo().then(function(response) {
@@ -15,6 +15,7 @@ viewsModule.controller('CountriesCtrl', function($scope, getCountryInfo) {
 
     /* Changes route based on which country the user clicks */
     $scope.goToCountry = function(code) {
-        window.location.href = '#/countries/' + code;
+        //window.location.href = '#/countries/' + code;
+        $location.path('/countries/' + code);
     };
 });
