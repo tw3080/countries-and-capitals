@@ -26,8 +26,8 @@ describe('countriesAppViews', function() {
         it('should go to the selected country', inject(function($httpBackend, $rootScope) {
             $httpBackend.whenGET('countries/countries.html').respond('...');
             $httpBackend.expectGET('//api.geonames.org/countryInfo?type=json&username=tw3080').respond({});
-            scope.goToCountry('USA');
-            expect($location.path()).toBe('/countries/USA');
+            scope.goToCountry('US');
+            expect($location.path()).toBe('/countries/US');
         }));
     });
 });
