@@ -1,6 +1,6 @@
 angular.module('countriesLibrary', [])
 /* Setting constants */
-.constant('GEONAMES_API_PREFIX', 'https://api.geonames.org')
+.constant('GEONAMES_API_PREFIX', '//api.geonames.org')
 .constant('GEONAMES_TYPE', 'json')
 .constant('GEONAMES_USERNAME', 'tw3080')
 /* Returns information about each country in the world, such as name, population, area, etc. */
