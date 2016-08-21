@@ -22,3 +22,16 @@ describe('countrySearch', function() {
         });
     }));
 });
+
+describe('neighborSearch', function() {
+    beforeEach(module('countriesLibrary'));
+    it('should query the geonames API and return a list of neighboring countries', inject(function(neighborSearch, $rootScope, $httpBackend) {
+        $httpBackend.expectGET('//api.geonames.org/neighbours?country=AE&type=json&username=tw3080').respond(200);
+        neighborSearch().then(function(response) {
+            $rootScope.data = response;
+            expect($rootScope.data.length).toBeGreaterThan(0);
+            expect($rootScope.data.geonames[0].countryCode).toBe('OM');
+            expect($rootScope.data.geonames[1].countryCode).toBe('SA');
+        });
+    }));
+});
