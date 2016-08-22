@@ -35,3 +35,15 @@ describe('neighborSearch', function() {
         });
     }));
 });
+
+describe('getByCountryCode filter', function() {
+    beforeEach(module('countriesLibrary'));
+    it('should filter a list of countries based on a country code', inject(function(getByCountryCodeFilter, getCountryInfo, $rootScope, $httpBackend) {
+        $httpBackend.expectGET('//api.geonames.org/countryInfo?type=json&username=tw3080').respond(200);
+        getCountryInfo().then(function(response) {
+            $rootScope.data = response;
+            var country = getByCountryCodeFilter($rootScope.data, 'AE');
+            expect(country.countryCode).toBe('AE');
+        });
+    }));
+});
